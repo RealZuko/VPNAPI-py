@@ -1,9 +1,10 @@
 import json
 import requests
-
+import os
 # Let's steal the api key :D
-with open('config.json') as f:
-    config = json.load(f)
+os.system("title " + "VPN Check tool - Github.com/Realzuko")
+with open('config.json') as j:
+    config = json.load(j)
     api_key = config.get('api_key', '')  # NO API KEY? STRING EMPTY
 
 if not api_key:
@@ -22,8 +23,6 @@ while True:
     with open('data.json', 'a') as f:
         json.dump({"response": response}, f)
         f.write('\n') #o shit, not gud
-
-    # Prints the check
-    print(response)
-    break
+        print(response) #made it more readable ,because it was slightly annoying.
+    break #break the loop
 
