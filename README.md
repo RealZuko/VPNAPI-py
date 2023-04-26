@@ -1,5 +1,4 @@
-# VPN Check
-### based on vpnapi.io
+### VPn Check based on vpnapi.io api
 
 
 ### Installation
