@@ -12,17 +12,14 @@ if not api_key:
     api_key = input("Enter API key: ")
     with open('config.json', 'w') as f:
         json.dump({'api_key': api_key}, f)
-while True:
-    ip_address = input("Enter IP address to check: ")
+ip_address = input("Enter IP address to check: ")
 
-    # Dat a vpn? or dat not a vpn
-    url = f"https://vpnapi.io/api/{ip_address}?key={api_key}"
-    response = requests.get(url).json()
+# Dat a vpn? or dat not a vpn
+url = f"https://vpnapi.io/api/{ip_address}?key={api_key}"
+response = requests.get(url).json()
 
     # save that shit 
-    with open('data.json', 'a') as f:
-        json.dump({"response": response}, f)
-        f.write('\n') #o shit, not gud
-        print(response) #made it more readable ,because it was slightly annoying.
-    break #break the loop
+with open('data.json', 'a') as f:
+    json.dump({"response": response}, f)
+    print(response) #made it more readable ,because it was slightly annoying.
 
