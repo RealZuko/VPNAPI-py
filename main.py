@@ -9,11 +9,12 @@ with open('config.json') as j:
     config = json.load(j)
     api_key = config.get('api_key', '')
 
-# If the API key is empty, ask for the API key and save it to config.json file
-if not api_key:
+# If the API key is empty or set to "PLACE_API_KEY_HERE", ask for the API key and save it to config.json file
+if not api_key or api_key == "ENTER_API_KEY_HERE":
     api_key = input("Enter API key: ")
     with open('config.json', 'w') as f:
         json.dump({'api_key': api_key}, f)
+
 
 # Get the IP address from user input
 ip_address = input("Enter IP address to check: ")
