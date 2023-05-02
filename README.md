@@ -1,10 +1,9 @@
-### VPn Check based on vpnapi.io api
+### Tool to check for vpn's
+##### based on vpnapi.io
 
 
 ### Installation
-##### run ```$ python3 -m pip install -r req.txt```
-
-
+##### ```$ .\install.bat```
 
 ### Usage
-##### ```python3 VPN_CHECKER.py```
+##### ```.\start.bat```
