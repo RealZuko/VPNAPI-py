@@ -1,8 +1,16 @@
 import json
 import requests
 import os
+import sys
+if sys.platform == 'win32':
+    os.system('mv scripts\\Windows\\install.bat ..\\')
+    os.system('mv scripts\\Windows\\Start.bat ..\\')
+elif not system.platform == 'win32':
+    os.system('mv scripts\\Linux\\install.sh ..\\')
+    os.system('mv scripts\\Linux\\run.sh ..\\')
+if sys.platform == 'win32':
+    os.system("title " + "VPN Check tool - Github.com/Realzuko")
 
-os.system("title " + "VPN Check tool - Github.com/Realzuko")
 
 # Load the API key from config.json file
 with open('config.json') as j:
@@ -28,7 +36,6 @@ ip_given = response.get('ip', '')
 vpn_proxy = response.get('security', {}).get('vpn', False) or response.get('security', {}).get('proxy', False)
 isp = response.get('network', {}).get('autonomous_system_organization', '')
 
-
 # Create a new directory to save the JSON files
 if not os.path.exists('Results'):
     os.makedirs('Results')
@@ -48,3 +55,7 @@ print(f"IP Given: {ip_given}")
 print(f"VPN/Proxy: {vpn_proxy}")
 print(f"ISP: {isp}")
 print(f"More specific data was saved to {filename}")
+if sys.platform == 'win32':
+    os.system('color f')
+elif not sys.platform == 'win32':
+    exit()
