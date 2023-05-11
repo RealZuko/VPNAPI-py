@@ -3,6 +3,7 @@ import requests
 import os
 import sys
 import webbrowser
+import time
 if sys.platform == 'win32':
     os.system("title " + "VPN Check tool - Github.com/Realzuko")
 
@@ -15,6 +16,11 @@ with open('api.json') as j:
 # If the API key is empty or set to "PLACE_API_KEY_HERE", ask for the API key and save it to api.json file
 if not api_key or api_key == "ENTER_API_KEY_HERE":
     api_key = input("Enter API key: ")
+    if len(api_key) != 32:
+        print("Enter the correct API key!")
+        time.sleep(1)
+        exit()
+else:
     with open('api.json', 'w') as f:
         json.dump({'api_key': api_key}, f)
 
